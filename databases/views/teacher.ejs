@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Teachers</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>
+          ID :
+        </th>
+        <th>
+          First Name :
+        </th>
+        <th>
+          Last Name :
+        </th>
+        <th>
+          Email :
+        </th>
+      </tr>
+      <% dataTeacher.forEach(teacher => {%>
+        <th>
+          <%= teacher.id %>
+        </th>
+        <th>
+          <%= teacher.first_name %>
+        </th>
+        <th>
+          <%= teacher.last_name %>
+        </th>
+        <th>
+          <%= teacher.email %>
+        </th>
+      <%})%>
+    </table>
+  </body>
+</html>
