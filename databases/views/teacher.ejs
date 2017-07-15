@@ -34,6 +34,9 @@
               <th>First Name</th>
               <th>Last Name</th>
               <th>Email</th>
+              <th>Subject</th>
+
+              </th>
               <th colspan='2'></th>
             </tr>
             <% dataTeacher.forEach(teacher=>{%>
@@ -47,7 +50,6 @@
               <% } else { %>
                 <td><%= teacher.Subject.subject_name %></td>
               <% } %>
-              <td><%= teacher.SubjectId%></td>
               <td><a href="/teacher/delete/<%=teacher.id%>"><button type="button" name="Delete">DELETE</button></a></td>
             </tr>
             <td><a href="/teacher/edit/<%=teacher.id%>"><button type="button" name="Edit">EDIT</button></a></td>

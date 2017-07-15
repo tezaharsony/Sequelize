@@ -8,6 +8,7 @@ module.exports = function(sequelize, DataTypes) {
   });
     Teacher.associate = (models) => {
     Teacher.belongsTo(models.Subject)
+
 }
   return Teacher;
 };

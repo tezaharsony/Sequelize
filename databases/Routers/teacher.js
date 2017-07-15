@@ -13,6 +13,7 @@ router.get("/", function(req,res){
   })
 })
 
+
 router.get('/add', function(req, res){
   res.render('teacherAdd');
 });
@@ -29,8 +30,11 @@ router.post('/add', function(req, res){
 router.get('/edit/:id', function(req, res){
   model.Teacher.findById(req.params.id)
   .then (function (rows){
-    res.render('teacherEdit', {dataTeacher: rows});
-  })
+    model.Subject.findAll()
+    .then (function(rowsubject){
+      res.render('teacherEdit', {dataTeacher: rows, dataSubject: rowsubject});
+      })
+    })
    });
 
 router.post('/edit/:id', function(req, res) {
