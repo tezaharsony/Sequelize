@@ -18,9 +18,8 @@
       background-color: #dddddd;
     }
   </style>
-  <title>Subject</title>
+  <%- include layouts/pagetitlesubject%>
   </head>
-
   <body>
   <center><h3>Subject data</h3><center><br>
   <br><br>
@@ -35,8 +34,18 @@
     <% dataSubject.forEach(subject =>{%>
     <tr>
       <td><%= subject.id %></td>
-      <td><%= subject.subject_name %></td>
-      <td><%= subject.first_name %></td>
+      <td>
+        <%= subject.subject_name %>
+      </td>
+      <td>
+          <ol type="1">
+          <% subject.first_name.forEach(name =>{%>
+          <li> <%= name %> </li>
+          <%})%>
+          </ol>
+      </td>
+
+      <td><a href="/subjects/enrolledstudent/<%=subject.id%>">Enrolled Students</a></td>
     </tr>
       <%})%>
     </table>

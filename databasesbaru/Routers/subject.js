@@ -27,5 +27,19 @@ router.get('/', function(req, res){
       console.log(err);
     })
   })
+
+  router.get('/enrolledStudent/:id', function(req, res){
+  model.studentsubject.findAll({
+    where: {
+      subjectid: req.params.id
+    },
+    include: [{all:true}]
+  })
+  .then(function (rows){
+    console.log(JSON.stringify(rows));
+    res.render('enrolledStudent', {data_subjectstudent:rows})
+  })
+});
+
 });
 module.exports = router;

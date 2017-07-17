@@ -23,6 +23,25 @@ router.post('/add', function(req, res){
 });
 
 //go to the student edit form
+router.get('/addsubject/:id', function(req, res){
+  model.Student.findById(req.params.id)
+  .then (function (rows){
+    model.Subject.findAll()
+    .then (function (rows2){
+    res.render('studentAddSub', {data_student: rows, data_subject: rows2});
+  })
+   })
+ });
+
+router.post('/addsubject/:id', function(req, res) {
+  model.studentsubject.create({ studentid: req.params.id, subjectid: req.body.subjectid})
+  .then( function(){
+  res.redirect('/student');
+  })
+});
+
+
+//go to the student edit form
 router.get('/edit/:id', function(req, res){
   model.Student.findById(req.params.id)
   .then (function (rows){

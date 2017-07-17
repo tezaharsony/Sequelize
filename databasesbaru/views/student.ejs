@@ -18,7 +18,7 @@
       background-color: #dddddd;
     }
   </style>
-  <title>Student</title>
+  <%- include layouts/pagetitlestudent %>
   </head>
 
   <body>
@@ -34,19 +34,20 @@
       <th>First Name</th>
       <th>Last Name</th>
       <th>Email</th>
-      <th>Degree</th>
       <th colspan='2'></th>
     </tr>
+    <% var sum=1;%>
     <% dataStudent.forEach(student =>{%>
     <tr>
+      <td><%= sum++ %></td>
       <td><%= student.id %></td>
       <td><%= student.first_name %></td>
       <td><%= student.last_name %></td>
       <td><%= student.email %></td>
-
-      <td><a href="/student/delete/<%= student.id %>"><button type="button" name="Delete">DELETE</button></a></td>
-    </tr>
+    <td><a href="/student/addsubject/<%= student.id %>"><button type="button" name="Edit">ADD SUBJECT</button></a></td>
+    <td><a href="/student/delete/<%= student.id %>"><button type="button" name="Delete">DELETE</button></a></td>
     <td><a href="/student/edit/<%= student.id %>"><button type="button" name="Edit">EDIT</button></a></td>
+    </tr>
       <%})%>
     </table>
   </center>

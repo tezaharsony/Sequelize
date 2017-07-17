@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <%- include layouts/pagetitleteacher%>
   </head>
   <body>
   <center>
     <h1>TEACHER EDIT FORM</h1><br><br>
-    <form action="/student/edit/<%=dataTeacher.id%>" method="POST">
+    <form action="/teacher/edit/<%=dataTeacher.id%>" method="POST">
     First Name:<br>
     <input type="text" name="first_name" value="<%=dataTeacher.first_name %>">
     <br>
@@ -18,7 +18,7 @@
     <input type="text" name="email" value="<%=dataTeacher.email %>">
     <br>
     ContactID<br>
-    <select name="ContactID">
+    <select name="Subject">
       <% dataSubject.forEach(data =>{ %>
         <%
           var selected = ""
